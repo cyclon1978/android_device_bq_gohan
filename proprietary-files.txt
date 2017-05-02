@@ -496,3 +496,7 @@ etc/firmware/synaptics_firmware_truly_lg.img
 
 # WLAN
 bin/wcnss_service
+
+# Hack to include prebuild libraries to fix audio and camera
+lib/hw/audio.primary.msm8952.so
+lib/hw/gralloc.msm8952.so
