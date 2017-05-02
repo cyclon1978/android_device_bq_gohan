@@ -500,3 +500,34 @@ bin/wcnss_service
 # Hack to include prebuild libraries to fix audio and camera
 lib/hw/audio.primary.msm8952.so
 lib/hw/gralloc.msm8952.so
+
+# camera config
+etc/camera/camera_config.xml
+etc/camera/imx219_cmb104_chromatix.xml
+etc/camera/imx219_d8n03d_chromatix.xml
+etc/camera/imx298_chromatix.xml
+etc/camera/imx298_cmb087qr_chromatix.xml
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a300_pm4.fw
+etc/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw
+etc/firmware/a420_pfp.fw
+etc/firmware/a420_pm4.fw
+etc/firmware/cpp_firmware_v1_5_1.fw
+etc/firmware/ice40.bin
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+etc/firmware/nvm_tlv.bin
+etc/firmware/nvm_tlv_1.3.bin
+etc/firmware/nvm_tlv_2.1.bin
+etc/firmware/nvm_tlv_3.0.bin
+etc/firmware/nvm_tlv_3.2.bin
+etc/firmware/rampatch_tlv.img
+etc/firmware/rampatch_tlv_1.3.tlv
+etc/firmware/rampatch_tlv_2.1.tlv
+etc/firmware/rampatch_tlv_3.0.tlv
+etc/firmware/rampatch_tlv_3.2.tlv
+etc/firmware/synaptics_firmware_booyi.img
