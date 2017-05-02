@@ -218,7 +218,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.bt.sh \
-    init.qcom.sh
+    init.qcom.sh \
+    init.qcom.syspart_fixup.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.power.rc \
@@ -256,3 +257,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
     $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 
+# Startup configuration (wifi link if wifi as module) initiated through init.qcom.syspart_fixup.sh
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/boot/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh

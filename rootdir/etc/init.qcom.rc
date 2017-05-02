@@ -68,6 +68,7 @@ on early-boot
     write /sys/module/pil_msa/parameters/modem_dbg_cfg ${persist.sys.modem_dbg_cfg}
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/codec_type/boot ${persist.sys.external}
+    exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
     write /sys/kernel/boot_adsp/boot 1
     chown root audio /sys/kernel/boot_adsp/boot
     # SSR Setup
