@@ -16,6 +16,7 @@
 
 LOCAL_PATH := device/bq/gohan
 
+# Headers
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Architecture
@@ -33,18 +34,26 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
 TARGET_BOOTLOADER_BOARD_NAME := msm8952
 TARGET_NO_BOOTLOADER := true
 
+# Serialnumber
+TARGET_IGNORE_RO_BOOT_SERIALNO := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk buildvariant=userdebug
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+
+BOARD_RAMDISK_OFFSET := 0x02000000
+
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 TARGET_KERNEL_CONFIG := gohan_defconfig
 TARGET_KERNEL_SOURCE := kernel/bq/msm8976
+TARGET_KERNEL_HAVE_EXFAT := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := Aquaris_X5_Plus,gohan
@@ -76,7 +85,13 @@ QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
 
 # Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
+# USE_DEVICE_SPECIFIC_CAMERA := true | USE_CAMERA_STUB := true for stock camera.msm8952.so
+USE_DEVICE_SPECIFIC_CAMERA := false
+USE_CAMERA_STUB := false
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+TARGET_CAMERA_APP := Snap
+# maybe baby: in stock we got it
+TARGET_TS_MAKEUP := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -106,7 +121,7 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
-
+TARGET_USES_QCOM_BSP := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -118,6 +133,7 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
+# Adreno
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
 # Encryption
@@ -168,6 +184,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 TARGET_RIL_VARIANT := caf
@@ -187,6 +204,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME     := "wlan"
 
 # inherit from the proprietary version
 -include vendor/bq/gohan/BoardConfigVendor.mk
+
