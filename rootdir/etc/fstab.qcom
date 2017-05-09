@@ -18,3 +18,8 @@
 # SDCard
 /devices/soc.0/7864900.sdhci/mmc_host*              auto         auto    defaults                                                                       voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/msm_hsusb_host/usb*               auto         auto    defaults                                                                       voldmanaged=usb:auto
+
+# additional f2fs variants
+/dev/block/bootdevice/by-name/userdata              /data        f2fs    nosuid,nodev,noatime,nodiratime,inline_xattr,data_flush                        wait,check,encryptable=footer,formattable,length=-16384
+/dev/block/bootdevice/by-name/cache                 /cache       f2fs    nosuid,nodev,noatime,nodiratime,inline_xattr,flush_merge,data_flush            wait,check,formattable
+
