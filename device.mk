@@ -35,6 +35,8 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 
 # QCOM HAL
 ## double-sets the path, but it seems to work
+# audio is required because gohan needs patched audio.primary.msm8952.so
+$(call project-set-path,qcom-audio,device/bq/gohan/audio)
 ## removed $(call project-set-path,qcom-audio,device/bq/gohan/audio)
 
 # Permissions
@@ -99,7 +101,7 @@ PRODUCT_COPY_FILES += \
     hardware/qcom/audio-caf/msm8952/configs/msm8952_32/sound_trigger_mixer_paths_wcd9306.xml:system/etc/sound_trigger_mixer_paths_wcd9306.xml \
     hardware/qcom/audio-caf/msm8952/configs/msm8952_32/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     hardware/qcom/audio-caf/msm8952/configs/msm8952_32/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_qrd_skun.xml:system/etc/mixer_paths_qrd_skun.xml
+    $(LOCAL_PATH)/audio/configs/mixer_paths_qrd_skun.xml:system/etc/mixer_paths_qrd_skun.xml
 
 ## PRODUCT_COPY_FILES += \
 ##     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -265,6 +267,11 @@ PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# audio
+PRODUCT_PACKAGES += \
+	libqct_resampler \
+    libaudioresampler
 
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
