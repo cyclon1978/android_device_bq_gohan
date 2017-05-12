@@ -72,8 +72,8 @@ AUDIO_FEATURE_ENABLED_VBAT_MONITOR := true
 AUDIO_FEATURE_ENABLED_VOICE_CONCURRENCY := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_USES_ALSA_AUDIO := true
-# flags assumed from log analysis
-AUDIO_FEATURE_ENABLED_MULTIPLE_TUNNEL := true
+# flags assumed from log analysis: gives log errors if false, but stock is same -> keep false
+AUDIO_FEATURE_ENABLED_MULTIPLE_TUNNEL := false
 # flags from predefined config
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true

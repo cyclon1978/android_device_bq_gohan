@@ -1065,6 +1065,7 @@ int audio_extn_spkr_prot_get_acdb_id(snd_device_t snd_device)
 #ifdef PLATFORM_MSM8916
     case SND_DEVICE_OUT_SPEAKER_WSA:
 #endif
+    case SND_DEVICE_OUT_RING_SPEAKER: // thats not verified
         acdb_id = platform_get_snd_device_acdb_id(SND_DEVICE_OUT_SPEAKER_PROTECTED);
         break;
     case SND_DEVICE_OUT_SPEAKER_VBAT:

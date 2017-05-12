@@ -341,7 +341,7 @@ static const char * const device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_SPEAKER_VBAT] = "vbat-speaker",
     [SND_DEVICE_OUT_SPEAKER_REVERSE] = "speaker-reverse",
     [SND_DEVICE_OUT_HEADPHONES] = "headphones",
-    [SND_DEVICE_OUT_HEADPHONES_44_1] = "headphones-44.1",
+    [SND_DEVICE_OUT_HEADPHONES_44_1] = "headphones-44.1", // not in stock but set in stock programatically
     [SND_DEVICE_OUT_LINE] = "line",
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES] = "speaker-and-headphones",
     [SND_DEVICE_OUT_SPEAKER_AND_LINE] = "speaker-and-line",
@@ -350,6 +350,7 @@ static const char * const device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_HANDSET] = "voice-handset",
     [SND_DEVICE_OUT_VOICE_SPEAKER] = "voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = "voice-speaker-2",
+    [SND_DEVICE_OUT_RING_SPEAKER] = "ring-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = "wsa-voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA] = "wsa-voice-speaker-2",
     [SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = "vbat-voice-speaker",
@@ -477,6 +478,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_LINE] = 10,
     [SND_DEVICE_OUT_VOICE_SPEAKER] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = 14,
+    [SND_DEVICE_OUT_RING_SPEAKER] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = 135,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA] = 135,
     [SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = 135,
@@ -517,10 +519,11 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_HANDSET_MIC_AEC] = 106,
     [SND_DEVICE_IN_HANDSET_MIC_NS] = 107,
     [SND_DEVICE_IN_HANDSET_MIC_AEC_NS] = 108,
+    [SND_DEVICE_IN_HANDSET_MIC_SECONDARY] = 4, // was in stock with 4
     [SND_DEVICE_IN_HANDSET_DMIC] = 41,
     [SND_DEVICE_IN_HANDSET_DMIC_AEC] = 109,
     [SND_DEVICE_IN_HANDSET_DMIC_NS] = 110,
-    [SND_DEVICE_IN_HANDSET_DMIC_AEC_NS] = 111,
+    [SND_DEVICE_IN_HANDSET_DMIC_AEC_NS] = 111, // changed to 257 in code in stock
     [SND_DEVICE_IN_SPEAKER_MIC] = 11,
     [SND_DEVICE_IN_SPEAKER_MIC_AEC] = 112,
     [SND_DEVICE_IN_SPEAKER_MIC_NS] = 113,
@@ -605,6 +608,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_HANDSET)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_RING_SPEAKER)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_WSA)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_VBAT)},
@@ -641,6 +645,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOIP_HEADPHONES)},
 #endif
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_SECONDARY)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_EXTERNAL)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_AEC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_NS)},
@@ -1135,6 +1140,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     backend_table[SND_DEVICE_IN_USB_HEADSET_MIC] = strdup("usb-headset-mic");
     backend_table[SND_DEVICE_IN_CAPTURE_FM] = strdup("capture-fm");
     backend_table[SND_DEVICE_OUT_TRANSMISSION_FM] = strdup("transmission-fm");
+    // in stock 44.1 only here, not in table
     backend_table[SND_DEVICE_OUT_HEADPHONES_44_1] = strdup("headphones-44.1");
     backend_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("vbat-voice-speaker");
     backend_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT] = strdup("vbat-voice-speaker-2");
@@ -1856,7 +1862,8 @@ bool platform_can_enable_spkr_prot_on_device(snd_device_t snd_device)
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_WSA ||
-        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA) {
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA || // 20
+        snd_device == SND_DEVICE_OUT_RING_SPEAKER) {  // ring speaker!
         ret = true;
     }
 
