@@ -198,9 +198,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_gohan
 TARGET_PROVIDES_KEYMASTER := true
 
 # Lights
-### TARGET_PROVIDES_LIBLIGHT := true
-### why, the provided version looks fine, so disable it
-TARGET_PROVIDES_LIBLIGHT := false
+TARGET_PROVIDES_LIBLIGHT := true
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
