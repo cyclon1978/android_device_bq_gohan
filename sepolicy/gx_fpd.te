@@ -2,6 +2,7 @@ type gx_fpd, domain;
 type gx_fpd_exec, exec_type, file_type;
 type gx_fpd_device, dev_type;
 type gx_fpd_data_file, file_type, data_file_type;
+type gx_fpd_service, system_api_service, system_server_service, service_manager_type;
 
 init_daemon_domain(gx_fpd)
 binder_use(gx_fpd)
