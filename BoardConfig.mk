@@ -118,9 +118,11 @@ USE_DEVICE_SPECIFIC_CAMERA := false
 USE_CAMERA_STUB := false
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_CAMERA_APP := Snap
-# maybe baby: in stock we got it
-TARGET_TS_MAKEUP := true
 USE_PREFERRED_CAMERA_FORMAT := true
+
+# refactored from stock:
+TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_TS_MAKEUP := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
