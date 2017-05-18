@@ -45,7 +45,7 @@ PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
 case "$target" in
-    msm8952*)
+    msm8976*)
 		# link wlan module if it exists
 		if [ -f /system/lib/modules/pronto/pronto_wlan.ko ]; then
 			rm  /system/lib/modules/wlan.ko
