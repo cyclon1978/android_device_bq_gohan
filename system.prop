@@ -169,6 +169,9 @@ persist.env.fastdorm.enabled=false
 persist.fd.scroff.timer=1000
 persist.fd.scron.timer=5000
 
+# Nfc extended length support
+persist.nfc.extended_length=65279
+
 # Time services
 persist.timed.enable=true
 
