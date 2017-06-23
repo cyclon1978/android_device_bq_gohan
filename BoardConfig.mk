@@ -34,9 +34,6 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
 TARGET_BOOTLOADER_BOARD_NAME := msm8952
 TARGET_NO_BOOTLOADER := true
 
-# Serialnumber
-TARGET_IGNORE_RO_BOOT_SERIALNO := true
-
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk buildvariant=userdebug
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -113,12 +110,15 @@ QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
 
 # Camera
-# USE_DEVICE_SPECIFIC_CAMERA := true | USE_CAMERA_STUB := true for stock camera.msm8952.so
-USE_DEVICE_SPECIFIC_CAMERA := false
-USE_CAMERA_STUB := false
+# USE_DEVICE_SPECIFIC_CAMERA := true | USE_CAMERA_STUB := true for stock camera.msm8952.so, otherwise both false
+USE_DEVICE_SPECIFIC_CAMERA := true
+USE_CAMERA_STUB := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_CAMERA_APP := Snap
 USE_PREFERRED_CAMERA_FORMAT := true
+# HAL1 is not working properly, stops after one picture
+# but test it again...
+TARGET_SUPPORT_HAL1 := true
 
 # refactored from stock:
 TARGET_USES_MEDIA_EXTENSIONS := true

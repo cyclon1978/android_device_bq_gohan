@@ -19,7 +19,6 @@ etc/drc/drc_cfg_AZ.txt
 etc/firmware/tfa98xx.cnt
 etc/surround_sound_3mic/surround_sound_rec_5.1.cfg
 etc/surround_sound_3mic/surround_sound_rec_AZ.cfg
-## audio hack removed for fixing: lib/hw/audio.primary.msm8952.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
@@ -43,14 +42,14 @@ vendor/lib/libbtnv.so
 # Camera
 bin/mm-qcamera-daemon
 etc/camera/camera_config.xml
-# removed: aosp-caf camera contains it: lib/hw/camera.msm8952.so
+lib/hw/camera.msm8952.so
 lib/libarcsoft_beautyshot.so
 lib/libcam.beautyshot.so
-# removed: aosp-caf camera contains it: -lib/libmmjpeg_interface.so
-# removed: aosp-caf camera contains it: -lib/libmmcamera_interface.so
-# removed: aosp-caf camera contains it: -lib/libmm-qcamera.so
+-lib/libmmjpeg_interface.so
+-lib/libmmcamera_interface.so
+-lib/libmm-qcamera.so
 lib/libmpbase.so
-# removed: aosp-caf camera contains it: -lib/libqomx_core.so
+-lib/libqomx_core.so
 vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
