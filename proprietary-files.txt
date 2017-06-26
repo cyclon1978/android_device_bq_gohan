@@ -45,8 +45,8 @@ etc/camera/camera_config.xml
 lib/hw/camera.msm8952.so
 lib/libarcsoft_beautyshot.so
 lib/libcam.beautyshot.so
--lib/libmmjpeg_interface.so
 -lib/libmmcamera_interface.so
+-lib/libmmjpeg_interface.so
 -lib/libmm-qcamera.so
 lib/libmpbase.so
 -lib/libqomx_core.so
