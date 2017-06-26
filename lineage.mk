@@ -41,6 +41,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-bq
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=bq/Aquaris_X5_Plus/Aquaris_X5_Plus:7.1.1/NMF26F/1488837782:user/release-keys \
-    PRIVATE_BUILD_DESC="gohan-user 7.1.1 NMF26F 2.0.0_20170306-2255 release-keys"
+    BUILD_FINGERPRINT=bq/Aquaris_X5_Plus/Aquaris_X5_Plus:7.1.1/NMF26F/1493107265:user/release-keys \
+    PRIVATE_BUILD_DESC="gohan-user 7.1.1 NMF26F 2.1.0.3_20170425-0942 release-keys"
 endif

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="defaults_button">Reset to default</string>
+    <string name="battery_title">Battery</string>
+
+    <!-- Fastcharge Preference -->
+    <string name="fastcharge_title">Fastcharge</string>
+    <string name="fastcharge_summary">enables fastcharge for usb connection</string>
+    <string name="blx_title">Battery Life eXtender</string>
+    <string name="blx_summary">set upper limit for battery charge to increase battery life</string>
+
+    <!-- Blx Preference -->
+    <string name="charging_limit_min_value">75</string>
+    <string name="charging_limit_max_value">100</string>
+    <string name="charging_limit_default_value">85</string>
+    <string name="charging_limit_dialog_warning">Values greater than %1$d%% are not recommended due to significant lower battery life</string>
+    <string name="charging_limit_warning_threshold">95</string>
+    <string name="charging_limit_sysfs_file">/sys/devices/virtual/misc/batterylifeextender/charging_limit</string>
+    
+    <!-- Filesystem Preference -->
+    <string name="filesystem_title">Filesystem</string>
+
+    <string name="fsync_title">Fsync</string>
+    <string name="fsync_summary">Disable for better file system performance at the risk of data loss in case of a system crash.</string>
+    
+    <string name="dynamic_fsync_title">Dynamic-Fsync</string>
+    <string name="dynamic_fsync_summary">When enabled and screen is on, fsync operation is asynchronous. When screen is off, this operation is done synchronously.</string>
+
+    <!-- cluster_plug Preference -->    
+    <string name="cluster_plug_title">Hotplug: ClusterPlug</string>
+    
+    <string name="cluster_plug_active_title">ClusterPlug enabled</string>
+    <string name="cluster_plug_active_summary">big or little cluster will be completly disabled to save battery (do not disable if you have no other hotplug)</string>
+    
+    <string name="cluster_plug_low_power_mode_title">Low Power Mode</string>
+    <string name="cluster_plug_low_power_mode_summary">enables only litte cluster so save energy in trade for performance</string>
+    
+    <string name="cluster_plug_sampling_time_title">Sampling Time</string>
+    <string name="cluster_plug_sampling_time_summary">delay between load calculations in ms (rw, 0-1000, defaults to 50)</string>
+    
+    <string name="cluster_plug_load_threshold_up_title">load threshold up</string>
+    <string name="cluster_plug_load_threshold_up_summary">if more than 2 big cpu\'s are above this level vote for little cluster support (rw, 0-100, defaults to 80)</string>
+    
+    <string name="cluster_plug_load_threshold_down_title">load threshold down</string>
+    <string name="cluster_plug_load_threshold_down_summary">if more than 2 little cpu\'s are below this level vote for disabling little cluster support (rw, 0-100, defaults to 20)</string>
+    
+    <string name="cluster_plug_vote_threshold_up_title">vote threshold up</string>
+    <string name="cluster_plug_vote_threshold_up_summary">if more up-votes occur then enable the little cluster (rw, 0-99, defaults to 3) vote_threshold_up * sampling_time = \'delay to bring em up\'</string>
+    
+    <string name="cluster_plug_vote_threshold_down_title">vote threshold down</string>
+    <string name="cluster_plug_vote_threshold_down_summary">if more down-votes occur then disable the little cluster (rw, 0-99, defaults to 3) vote_threshold_down * sampling_time = \'delay to bring em down\'</string>
+    
+    <string name="cluster_plug_max_cores_screenoff_title">Maximum (little) cores in Screen-Off state</string>
+    <string name="cluster_plug_max_cores_screenoff_summary">define the numbers of little cores which stay enabled if screen is off (rw, 1-4, defaults to 4)</string>
+
+</resources>

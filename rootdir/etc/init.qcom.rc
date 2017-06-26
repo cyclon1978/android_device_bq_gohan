@@ -56,7 +56,6 @@ on init
     chown system log /sys/fs/pstore/dmesg-ramoops-0
     chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
 
-
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -434,6 +433,20 @@ on post-fs-data
     # Tap To Wake
     chown root system /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
     chmod 0660 /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
+    
+    # Kernel configuration accesible without root
+    chmod 666 /sys/kernel/fast_charge/force_fast_charge
+    chmod 666 /sys/devices/virtual/misc/batterylifeextender/charging_limit
+    chmod 666 /sys/kernel/dyn_fsync/Dyn_fsync_active
+    chmod 666 /sys/module/sync/parameters/fsync_enabled
+    chmod 666 /sys/module/cluster_plug/parameters/active
+    chmod 666 /sys/module/cluster_plug/parameters/low_power_mode
+    chmod 666 /sys/module/cluster_plug/parameters/sampling_time
+    chmod 666 /sys/module/cluster_plug/parameters/load_threshold_up
+    chmod 666 /sys/module/cluster_plug/parameters/load_threshold_down
+    chmod 666 /sys/module/cluster_plug/parameters/vote_threshold_up
+    chmod 666 /sys/module/cluster_plug/parameters/vote_threshold_down
+    chmod 666 /sys/module/cluster_plug/parameters/max_cores_screenoff
 
 service qfintverify /sbin/qfintverify
     user root
