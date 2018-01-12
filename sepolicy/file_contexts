@@ -11,3 +11,23 @@
 
 # NFC
 /dev/pn547                                                            u:object_r:nfc_device:s0
+
+# ConfigPanel sysfs nodes
+/sys/kernel/fast_charge/force_fast_charge                             u:object_r:fastcharge_sysfs:s0
+/sys/devices/virtual/misc/batterylifeextender/charging_limit          u:object_r:blx_sysfs:s0
+/sys/kernel/dyn_fsync/Dyn_fsync_active                                u:object_r:dyn_fsync_sysfs:s0
+/sys/module/sync/parameters/fsync_enabled                             u:object_r:fsync_sysfs:s0
+/sys/module/cluster_plug/parameters/active                            u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/low_power_mode                    u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/sampling_time                     u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/load_threshold_up                 u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/load_threshold_down               u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/vote_threshold_up                 u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/vote_threshold_down               u:object_r:clusterplug_sysfs:s0
+/sys/module/cluster_plug/parameters/max_cores_screenoff               u:object_r:clusterplug_sysfs:s0
+
+# for all apps allow reading sysfs nodes which are no risk
+/sys/devices/soc.0/qpnp-smbcharger-17/power_supply/battery/current_now u:object_r:battery_sysfs:s0
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq                  u:object_r:cpufreq_sysfs:s0
+/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq                  u:object_r:cpufreq_sysfs:s0
+

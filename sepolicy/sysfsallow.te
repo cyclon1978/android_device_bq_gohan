@@ -1,0 +1,24 @@
+type fastcharge_sysfs, sysfs_type, fs_type;
+type blx_sysfs, sysfs_type, fs_type;
+type battery_sysfs, sysfs_type, fs_type;
+type cpufreq_sysfs, sysfs_type, fs_type;
+type dyn_fsync_sysfs, sysfs_type, fs_type;
+type fsync_sysfs, sysfs_type, fs_type;
+type clusterplug_sysfs, sysfs_type, fs_type;
+
+# system configuration
+allow system_app fastcharge_sysfs:file rw_file_perms;
+allow system_app blx_sysfs:file rw_file_perms;
+allow system_app dyn_fsync_sysfs:file rw_file_perms;
+allow system_app fsync_sysfs:file rw_file_perms;
+allow system_app clusterplug_sysfs:file rw_file_perms;
+
+# other apps
+allow untrusted_app battery_sysfs:file r_file_perms;
+allow untrusted_app cpufreq_sysfs:file r_file_perms;
+
+# other apps predefined
+allow untrusted_app sysfs_zram:file r_file_perms;
+
+# healthd is allowed to read battery
+allow healthd battery_sysfs:file r_file_perms;
