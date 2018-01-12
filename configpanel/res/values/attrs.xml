@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="com.cyanogenmod.settings.device.preferences.SeekBarProgressPreference">
+		<attr name="base" format="integer" />
+	</declare-styleable>
+</resources> 

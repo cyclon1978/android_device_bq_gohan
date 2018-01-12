@@ -155,6 +155,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     keystore.msm8952
 
+# device specific configuration
+PRODUCT_PACKAGES += \
+	ConfigPanel
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8952
